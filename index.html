@@ -2,483 +2,209 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#087f5b">
-  <meta name="description" content="Souqna - Buy and sell new and used products in the UAE. سوقنا للبيع والشراء في الإمارات">
-  <title>Souqna | سوقنا</title>
-  <style>
-    :root {
-      --green: #087f5b;
-      --green-dark: #056747;
-      --bg: #f4f7f6;
-      --white: #ffffff;
-      --text: #172522;
-      --muted: #647570;
-      --border: #dce7e2;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Tahoma, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    button, input, select { font: inherit; }
-
-    button { cursor: pointer; }
-
-    .topbar {
-      background: var(--white);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand {
-      color: var(--green);
-      font-weight: 800;
-      font-size: 23px;
-      text-decoration: none;
-    }
-
-    .lang-btn {
-      border: 1px solid var(--green);
-      border-radius: 9px;
-      color: var(--green);
-      background: white;
-      padding: 8px 14px;
-      font-weight: 700;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #087f5b, #075c48);
-      color: white;
-      padding: 36px 18px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(27px, 6vw, 38px);
-      line-height: 1.3;
-      margin: 0 0 12px;
-    }
-
-    .hero p {
-      margin: 0 auto 20px;
-      max-width: 520px;
-      opacity: .95;
-    }
-
-    .wrap {
-      width: min(760px, 100%);
-      padding: 18px;
-      margin: auto;
-    }
-
-    .panel, .product {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 18px;
-      margin-bottom: 17px;
-      box-shadow: 0 4px 15px #14382b08;
-    }
-
-    h2 {
-      font-size: 21px;
-      margin: 0 0 14px;
-    }
-
-    .field { margin-bottom: 12px; }
-
-    label {
-      display: block;
-      font-size: 14px;
-      font-weight: 650;
-      margin-bottom: 5px;
-    }
-
-    input, select {
-      width: 100%;
-      min-height: 47px;
-      border: 1px solid #cbd9d2;
-      border-radius: 9px;
-      background: white;
-      color: var(--text);
-      padding: 11px 12px;
-    }
-
-    input:focus, select:focus {
-      outline: 2px solid #9bd5bd;
-      border-color: var(--green);
-    }
-
-    .btn {
-      width: 100%;
-      min-height: 47px;
-      padding: 11px 15px;
-      border: 0;
-      border-radius: 9px;
-      background: var(--green);
-      color: white;
-      font-weight: 750;
-    }
-
-    .btn:hover { background: var(--green-dark); }
-
-    .search-row {
-      display: flex;
-      gap: 8px;
-    }
-
-    .search-row input { min-width: 0; flex: 1; }
-
-    .search-row .btn { width: auto; }
-
-    .hint {
-      color: var(--muted);
-      font-size: 13px;
-      margin: 10px 0 0;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .product {
-      margin: 0;
-      padding: 14px;
-      min-width: 0;
-      overflow-wrap: anywhere;
-    }
-
-    .product-icon {
-      background: #e8f5ef;
-      border-radius: 11px;
-      min-height: 85px;
-      display: grid;
-      place-items: center;
-      font-size: 37px;
-      margin-bottom: 10px;
-    }
-
-    .product h3 {
-      font-size: 16px;
-      margin: 5px 0;
-    }
-
-    .price {
-      color: var(--green);
-      font-weight: 800;
-      font-size: 18px;
-    }
-
-    .category {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .empty {
-      grid-column: 1 / -1;
-      text-align: center;
-      background: white;
-      border: 1px dashed #b9cec4;
-      border-radius: 12px;
-      padding: 24px 12px;
-      color: var(--muted);
-    }
-
-    .footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      padding: 22px 15px 30px;
-    }
-
-    @media (max-width: 380px) {
-      .products-grid { grid-template-columns: 1fr; }
-      .search-row { flex-direction: column; }
-      .search-row .btn { width: 100%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f5b">
+<title>Souqna | سوقنا</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7f6;color:#20302a}
+header{background:white;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:24px;font-weight:bold;color:#087f5b}
+button,.btn{background:#087f5b;color:white;border:0;border-radius:8px;padding:12px;cursor:pointer;text-decoration:none}
+main{max-width:760px;margin:auto;padding:16px}
+.hero{background:#087f5b;color:white;text-align:center;padding:30px 15px}
+.panel,.product{background:white;padding:16px;border-radius:12px;margin-bottom:16px;border:1px solid #dce7e2}
+input,select,textarea{display:block;width:100%;padding:12px;margin:6px 0 14px;border:1px solid #cbd9d2;border-radius:8px;font:inherit}
+label{font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+.price{font-weight:bold;color:#087f5b;font-size:20px}
+.description{white-space:pre-wrap;overflow-wrap:anywhere}
+.actions{display:flex;gap:8px;margin-top:12px}
+.actions a{flex:1;text-align:center;font-size:14px}
+.call{background:#e8f5ef;color:#087f5b}
+.comment{background:#f4f7f6;padding:8px;border-radius:7px;margin:6px 0}
+small{color:#647570}
+@media(max-width:380px){.grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="Souqna home">Souqna | سوقنا</a>
-    <button class="lang-btn" id="langToggle" type="button">
-      English
-    </button>
-  </header>
+<header>
+<div class="logo">Souqna | سوقنا</div>
+<button id="language">English</button>
+</header>
 
-  <section class="hero">
-    <h1 data-i18n="heroTitle">كل ما تريد، في سوقنا</h1>
-    <p data-i18n="heroText">
-      اشترِ وبِع المنتجات الجديدة والمستعملة في الإمارات
-    </p>
-  </section>
+<section class="hero">
+<h1 id="heading">كل ما تريد، في سوقنا</h1>
+<p id="intro">اشترِ وبِع المنتجات الجديدة والمستعملة في الإمارات</p>
+</section>
 
-  <main class="wrap">
-    <section class="panel">
-      <h2 data-i18n="searchTitle">ابحث عن منتج</h2>
-      <div class="search-row">
-        <input id="searchInput" type="search"
-          data-placeholder="searchPlaceholder"
-          placeholder="ماذا تريد أن تشتري؟">
-        <button class="btn" id="searchBtn" type="button"
-          data-i18n="searchBtn">بحث</button>
-      </div>
-    </section>
+<main>
+<section class="panel">
+<h2 id="searchTitle">ابحث عن منتج</h2>
+<input id="search" placeholder="ماذا تريد أن تشتري؟">
+<button id="searchButton">بحث</button>
+</section>
 
-    <section class="panel">
-      <h2 data-i18n="postTitle">أضف إعلانك</h2>
-      <form id="listingForm">
-        <div class="field">
-          <label for="productName" data-i18n="nameLabel">اسم المنتج</label>
-          <input id="productName" required maxlength="100"
-            data-placeholder="namePlaceholder"
-            placeholder="مثال: هاتف مستعمل">
-        </div>
+<section class="panel">
+<h2 id="formTitle">أضف إعلانك</h2>
+<form id="listingForm">
+<label id="nameLabel">اسم المنتج</label>
+<input id="name" required maxlength="100" placeholder="مثال: هاتف مستعمل">
 
-        <div class="field">
-          <label for="productPrice" data-i18n="priceLabel">السعر (درهم)</label>
-          <input id="productPrice" type="number" required
-            min="0.01" max="100000000" step="0.01"
-            placeholder="مثال: 250">
-        </div>
+<label id="imageLabel">صورة المنتج</label>
+<input id="photo" type="file" accept="image/*" required>
 
-        <div class="field">
-          <label for="productCategory" data-i18n="categoryLabel">الفئة</label>
-          <select id="productCategory">
-            <option value="electronics" data-i18n="electronics">إلكترونيات</option>
-            <option value="furniture" data-i18n="furniture">أثاث ومنزل</option>
-            <option value="fashion" data-i18n="fashion">ملابس وإكسسوارات</option>
-            <option value="cars" data-i18n="cars">سيارات</option>
-            <option value="other" data-i18n="other">أخرى</option>
-          </select>
-        </div>
+<label id="phoneLabel">رقم واتساب مع مفتاح الدولة</label>
+<input id="phone" type="tel" required placeholder="971501234567">
 
-        <button class="btn" type="submit" data-i18n="postBtn">
-          نشر الإعلان التجريبي
-        </button>
-        <p class="hint" data-i18n="demoNote">
-          هذه نسخة تجريبية. الإعلانات محفوظة مؤقتًا أثناء فتح الصفحة فقط.
-        </p>
-      </form>
-    </section>
+<label id="priceLabel">السعر بالدرهم</label>
+<input id="price" type="number" min="0.01" step="0.01" required placeholder="250">
 
-    <section>
-      <h2 data-i18n="latestTitle">أحدث الإعلانات</h2>
-      <div id="products" class="products-grid" aria-live="polite"></div>
-    </section>
-  </main>
+<label id="categoryLabel">الفئة</label>
+<select id="category">
+<option value="electronics">إلكترونيات</option>
+<option value="furniture">أثاث ومنزل</option>
+<option value="fashion">ملابس وإكسسوارات</option>
+<option value="cars">سيارات</option>
+<option value="other">أخرى</option>
+</select>
 
-  <footer class="footer">
-    <span>Souqna | سوقنا</span> © 2026
-    <p data-i18n="footerText">سوقك للبيع والشراء في الإمارات</p>
-  </footer>
+<label id="descriptionLabel">وصف المنتج</label>
+<textarea id="description" required maxlength="1000" placeholder="اكتب تفاصيل المنتج وحالته..."></textarea>
 
-  <script>
-    const translations = {
-      ar: {
-        langButton: "English",
-        heroTitle: "كل ما تريد، في سوقنا",
-        heroText: "اشترِ وبِع المنتجات الجديدة والمستعملة في الإمارات",
-        searchTitle: "ابحث عن منتج",
-        searchPlaceholder: "ماذا تريد أن تشتري؟",
-        searchBtn: "بحث",
-        postTitle: "أضف إعلانك",
-        nameLabel: "اسم المنتج",
-        namePlaceholder: "مثال: هاتف مستعمل",
-        priceLabel: "السعر (درهم)",
-        categoryLabel: "الفئة",
-        electronics: "إلكترونيات",
-        furniture: "أثاث ومنزل",
-        fashion: "ملابس وإكسسوارات",
-        cars: "سيارات",
-        other: "أخرى",
-        postBtn: "نشر الإعلان التجريبي",
-        demoNote: "هذه نسخة تجريبية. الإعلانات محفوظة مؤقتًا أثناء فتح الصفحة فقط.",
-        latestTitle: "أحدث الإعلانات",
-        empty: "لا توجد إعلانات بعد. أضف أول إعلان!",
-        noResults: "لم نعثر على منتجات تطابق بحثك.",
-        invalid: "يرجى إدخال اسم المنتج وسعر صحيح.",
-        footerText: "سوقك للبيع والشراء في الإمارات",
-        currency: "درهم",
-        categories: {
-          electronics: "إلكترونيات",
-          furniture: "أثاث ومنزل",
-          fashion: "ملابس وإكسسوارات",
-          cars: "سيارات",
-          other: "أخرى"
-        }
-      },
-      en: {
-        langButton: "العربية",
-        heroTitle: "Everything you need, in one Souq",
-        heroText: "Buy and sell new and used products across the UAE",
-        searchTitle: "Find a product",
-        searchPlaceholder: "What are you looking for?",
-        searchBtn: "Search",
-        postTitle: "Post your listing",
-        nameLabel: "Product name",
-        namePlaceholder: "e.g. Used mobile phone",
-        priceLabel: "Price (AED)",
-        categoryLabel: "Category",
-        electronics: "Electronics",
-        furniture: "Furniture & Home",
-        fashion: "Fashion & Accessories",
-        cars: "Cars",
-        other: "Other",
-        postBtn: "Post demo listing",
-        demoNote: "This is a demo. Listings are kept temporarily while this page remains open.",
-        latestTitle: "Latest listings",
-        empty: "No listings yet. Post the first one!",
-        noResults: "No products match your search.",
-        invalid: "Please enter a product name and a valid price.",
-        footerText: "Your marketplace for buying and selling in the UAE",
-        currency: "AED",
-        categories: {
-          electronics: "Electronics",
-          furniture: "Furniture & Home",
-          fashion: "Fashion & Accessories",
-          cars: "Cars",
-          other: "Other"
-        }
-      }
-    };
+<button id="publish" type="submit">نشر الإعلان</button>
+<p><small id="notice">نسخة تجريبية: الإعلانات محفوظة على هذا الجهاز فقط.</small></p>
+</form>
+</section>
 
-    let language = "ar";
-    let listings = [];
-    let currentSearch = "";
+<h2 id="latest">أحدث الإعلانات</h2>
+<div id="products" class="grid"></div>
+</main>
 
-    const icons = {
-      electronics: "📱",
-      furniture: "🛋️",
-      fashion: "👕",
-      cars: "🚗",
-      other: "📦"
-    };
+<footer style="text-align:center;padding:20px">
+Souqna | سوقنا © 2026
+</footer>
 
-    function t(key) {
-      return translations[language][key];
-    }
+<script>
+const $=id=>document.getElementById(id);
+let lang="ar",query="";
+let listings=[];
+try{listings=JSON.parse(localStorage.getItem("souqnaListings")||"[]");if(!Array.isArray(listings))listings=[]}catch(e){listings=[]}
 
-    function changeLanguage() {
-      language = language === "ar" ? "en" : "ar";
-      document.documentElement.lang = language;
-      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+const words={
+ar:{
+lang:"English",heading:"كل ما تريد، في سوقنا",
+intro:"اشترِ وبِع المنتجات الجديدة والمستعملة في الإمارات",
+searchTitle:"ابحث عن منتج",search:"ماذا تريد أن تشتري؟",
+searchButton:"بحث",formTitle:"أضف إعلانك",nameLabel:"اسم المنتج",
+imageLabel:"صورة المنتج",phoneLabel:"رقم واتساب مع مفتاح الدولة",
+priceLabel:"السعر بالدرهم",categoryLabel:"الفئة",
+descriptionLabel:"وصف المنتج",publish:"نشر الإعلان",
+notice:"نسخة تجريبية: الإعلانات محفوظة على هذا الجهاز فقط.",
+latest:"أحدث الإعلانات",empty:"لا توجد إعلانات بعد.",
+whatsapp:"اسأل عبر واتساب",call:"اتصال",comments:"الأسئلة والتعليقات",
+commentPlaceholder:"اكتب سؤالك عن المنتج...",commentButton:"أضف تعليقًا",
+noComments:"لا توجد أسئلة بعد.",categories:["إلكترونيات","أثاث ومنزل","ملابس وإكسسوارات","سيارات","أخرى"],
+invalid:"يرجى التأكد من جميع البيانات ورقم الهاتف.",
+big:"الصورة أكبر من 2 ميغابايت. اختر صورة أصغر."
+},
+en:{
+lang:"العربية",heading:"Everything you need, in one Souq",
+intro:"Buy and sell new and used products across the UAE",
+searchTitle:"Find a product",search:"What are you looking for?",
+searchButton:"Search",formTitle:"Post your listing",nameLabel:"Product name",
+imageLabel:"Product photo",phoneLabel:"WhatsApp number with country code",
+priceLabel:"Price (AED)",categoryLabel:"Category",
+descriptionLabel:"Product description",publish:"Publish listing",
+notice:"Demo version: listings are saved on this device only.",
+latest:"Latest listings",empty:"No listings yet.",
+whatsapp:"Ask on WhatsApp",call:"Call",comments:"Questions & comments",
+commentPlaceholder:"Ask a question about this item...",commentButton:"Add comment",
+noComments:"No questions yet.",categories:["Electronics","Furniture & Home","Fashion","Cars","Other"],
+invalid:"Please check all fields and the phone number.",
+big:"Image exceeds 2 MB. Choose a smaller image."
+}
+};
 
-      document.querySelectorAll("[data-i18n]").forEach(element => {
-        const key = element.dataset.i18n;
-        element.textContent = t(key);
-      });
+function updateLanguage(){
+let w=words[lang];
+$("language").textContent=w.lang;
+["heading","intro","searchTitle","searchButton","formTitle","nameLabel","imageLabel","phoneLabel","priceLabel","categoryLabel","descriptionLabel","publish","notice","latest"].forEach(id=>$(id).textContent=w[id]);
+$("search").placeholder=w.search;
+$("description").placeholder=lang==="ar"?"اكتب تفاصيل المنتج وحالته...":"Describe the product and its condition...";
+$("name").placeholder=lang==="ar"?"مثال: هاتف مستعمل":"e.g. Used phone";
+$("phone").placeholder="971501234567";
+$("category").innerHTML=w.categories.map((c,i)=>`<option value="${["electronics","furniture","fashion","cars","other"][i]}">${c}</option>`).join("");
+document.documentElement.lang=lang;
+document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+render();
+}
 
-      document.querySelectorAll("[data-placeholder]").forEach(element => {
-        element.placeholder = t(element.dataset.placeholder);
-      });
+function render(){
+const box=$("products");box.replaceChildren();
+const w=words[lang];
+const filtered=listings.filter(x=>(x.name+" "+x.description+" "+x.category).toLowerCase().includes(query.toLowerCase()));
+if(!filtered.length){const p=document.createElement("p");p.textContent=w.empty;box.appendChild(p);return}
+filtered.forEach(item=>{
+const card=document.createElement("article");card.className="product";
+const img=document.createElement("img");img.src=item.image;img.alt=item.name;
+const title=document.createElement("h3");title.textContent=item.name;
+const price=document.createElement("div");price.className="price";price.textContent=item.price+" AED";
+const desc=document.createElement("p");desc.className="description";desc.textContent=item.description;
+const actions=document.createElement("div");actions.className="actions";
+const wa=document.createElement("a");wa.className="btn";wa.textContent=w.whatsapp;wa.target="_blank";wa.rel="noopener";
+wa.href="https://wa.me/"+item.phone+"?text="+encodeURIComponent(item.name);
+const call=document.createElement("a");call.className="btn call";call.textContent=w.call;call.href="tel:"+item.phone;
+actions.append(wa,call);
+const section=document.createElement("section");section.style.marginTop="15px";
+const h=document.createElement("b");h.textContent=w.comments;section.appendChild(h);
+const comments=JSON.parse(localStorage.getItem("sq-comments-"+item.id)||"[]");
+if(!comments.length){const p=document.createElement("p");p.textContent=w.noComments;section.appendChild(p)}
+comments.forEach(c=>{const d=document.createElement("div");d.className="comment";d.textContent=c;section.appendChild(d)});
+const form=document.createElement("form");
+const input=document.createElement("input");input.placeholder=w.commentPlaceholder;input.required=true;input.maxLength=500;
+const submit=document.createElement("button");submit.textContent=w.commentButton;
+form.append(input,submit);
+form.addEventListener("submit",e=>{
+e.preventDefault();
+comments.push(input.value.trim());
+localStorage.setItem("sq-comments-"+item.id,JSON.stringify(comments));
+render();
+});
+section.appendChild(form);
+card.append(img,title,price,desc,actions,section);box.appendChild(card);
+});
+}
 
-      document.getElementById("langToggle").textContent = t("langButton");
-      document.getElementById("searchInput").value = currentSearch;
-      renderListings();
-    }
+$("language").addEventListener("click",()=>{lang=lang==="ar"?"en":"ar";updateLanguage()});
+$("searchButton").addEventListener("click",()=>{query=$("search").value.trim();render()});
+$("search").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();query=$("search").value.trim();render()}});
 
-    function renderListings() {
-      const container = document.getElementById("products");
-      container.replaceChildren();
-
-      const term = currentSearch.trim().toLocaleLowerCase();
-      const filtered = listings.filter(item => {
-        const searchable = (
-          item.name + " " +
-          translations.ar.categories[item.category] + " " +
-          translations.en.categories[item.category]
-        ).toLocaleLowerCase();
-        return searchable.includes(term);
-      });
-
-      if (!filtered.length) {
-        const empty = document.createElement("div");
-        empty.className = "empty";
-        empty.textContent = listings.length ? t("noResults") : t("empty");
-        container.appendChild(empty);
-        return;
-      }
-
-      filtered.forEach(item => {
-        const card = document.createElement("article");
-        card.className = "product";
-
-        const icon = document.createElement("div");
-        icon.className = "product-icon";
-        icon.textContent = icons[item.category];
-
-        const name = document.createElement("h3");
-        name.textContent = item.name;
-
-        const price = document.createElement("div");
-        price.className = "price";
-        price.textContent = new Intl.NumberFormat(
-          language === "ar" ? "ar-AE" : "en-AE",
-          { maximumFractionDigits: 2 }
-        ).format(item.price) + " " + t("currency");
-
-        const category = document.createElement("div");
-        category.className = "category";
-        category.textContent = t("categories")[item.category];
-
-        card.append(icon, name, price, category);
-        container.appendChild(card);
-      });
-    }
-
-    document.getElementById("langToggle").addEventListener("click", changeLanguage);
-
-    document.getElementById("searchBtn").addEventListener("click", () => {
-      currentSearch = document.getElementById("searchInput").value;
-      renderListings();
-    });
-
-    document.getElementById("searchInput").addEventListener("keydown", event => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        currentSearch = event.target.value;
-        renderListings();
-      }
-    });
-
-    document.getElementById("listingForm").addEventListener("submit", event => {
-      event.preventDefault();
-
-      const name = document.getElementById("productName").value.trim();
-      const price = Number(document.getElementById("productPrice").value);
-      const category = document.getElementById("productCategory").value;
-
-      if (!name || !Number.isFinite(price) || price <= 0) {
-        alert(t("invalid"));
-        return;
-      }
-
-      listings.unshift({ name, price, category });
-      currentSearch = "";
-      document.getElementById("searchInput").value = "";
-      event.target.reset();
-      renderListings();
-    });
-
-    document.documentElement.lang = "ar";
-    document.documentElement.dir = "rtl";
-    renderListings();
-  </script>
+$("listingForm").addEventListener("submit",e=>{
+e.preventDefault();
+const file=$("photo").files[0];
+const phone=$("phone").value.replace(/\D/g,"");
+if(!file||!phone||phone.length<8){alert(words[lang].invalid);return}
+if(file.size>2*1024*1024){alert(words[lang].big);return}
+const reader=new FileReader();
+reader.onload=()=>{
+const item={
+id:Date.now(),name:$("name").value.trim(),
+price:Number($("price").value),
+category:$("category").value,
+description:$("description").value.trim(),
+phone,image:reader.result
+};
+listings.unshift(item);
+try{localStorage.setItem("souqnaListings",JSON.stringify(listings))}
+catch(err){listings.shift();alert("Storage full. Try a smaller photo.");return}
+e.target.reset();query="";$("search").value="";render();
+};
+reader.readAsDataURL(file);
+});
+updateLanguage();
+</script>
 </body>
 </html>
